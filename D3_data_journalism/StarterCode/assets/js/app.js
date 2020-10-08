@@ -1,9 +1,18 @@
 // @TODO: YOUR CODE HERE!
 d3.csv("assets/js/data.csv").then(function(journalismData) {
-    // console.log(journalismData);
+    console.log(journalismData);
+
+    journalismData.forEach(function(d) {
+        d.poverty=+d.poverty;
+        d.healthcare=+d.healthcare;
+        d.age=+d.age;
+        d.income=+d.income;
+        d.obesity=+d.obesity;
+        d.smokes=+d.smokes;
+    })
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
+var margin = {top: 30, right: 30, bottom: 30, left: 30},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -16,7 +25,7 @@ var svg = d3.select("#scatter")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 // Add X Axis
 var x = d3.scaleLinear()
-            .domain([0, d3.max(parseInt(journalismData[poverty]))])
+            .domain([0, d3.max(journalismData, d=>d.poverty)])
             .range([ 0, width ]);
             svg.append("g")
             .attr("transform", "translate(0," + height + ")")
@@ -25,18 +34,23 @@ var x = d3.scaleLinear()
         
 // Add Y axis
 var y = d3.scaleLinear()
-            .domain([0, 50000])
+            .domain([0, d3.max(journalismData, d=>d.healthcare)])
             .range([ height, 0]);
             svg.append("g")
             .call(d3.axisLeft(y));
 // Add dots
             svg.append('g')
-            .selectAll("dot")
+            .selectAll("dots")
             .data(journalismData)
             .enter()
             .append("circle")
+            // .statecircle()
             .attr("cx", function (d) { return x(d.poverty); } )
-            .attr("cy", function (d) { return y(d.healthcarelow); } )
-            .attr("r", 1.5)            
+            .attr("cy", function (d) { return y(d.healthcare); } )
+            .attr("r", 8)
+            .classed("stateCircle", true) 
+            
+            .attr("text", function (d) {return (d.state);} ) 
+            .classed("stateText", true)          
 })
 
