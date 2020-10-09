@@ -1,5 +1,6 @@
 # D3-Challenge
-Data Scientists Have Pinpointed the Age and Number of Smokers in Each State
+# Data Scientists Have Pinpointed the Age and Number of Smokers in Each State
+
 A recent study completed by a Data Scientist at the University of Denver Data Analytics Boot Camp found that the percentage of the population that smokes in each state ranges in average age from low-30s to mid-40s.
 
 The state with the highest percentage of smokers is West Virginia at approximately 27%. The state with the lowest percentage of smokers is Utah at just below 10%. In most states, smokers make up approximately 14-22% of the population.
