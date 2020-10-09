@@ -56,14 +56,15 @@ var gdots=  svg.selectAll("g.dot")
             .data(journalismData)
             .enter().append('g');
             gdots.append("circle")
+            .attr("r", 14)
             .attr("cx", function (d) { return x(d.smokes); } )
             .attr("cy", function (d) { return y(d.age); } )
-            .attr("r", 10)
             .classed("stateCircle", true); 
             gdots.append("text")
             .text(function (d) {return (d.abbr);} )
             .attr("x", function (d) { return x(d.smokes); } )
             .attr("y", function (d) { return y(d.age); } )
+            
             .classed("stateText", true);          
 });
 

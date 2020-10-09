@@ -29,6 +29,8 @@
   font-family: sans-serif;
   fill: #fff;
   text-anchor: middle;
+  /* text-align: center; */
+  margin-bottom: auto;
   /* font-size: 5px; */
 }
 
