@@ -64,7 +64,6 @@ var gdots=  svg.selectAll("g.dot")
             .text(function (d) {return (d.abbr);} )
             .attr("x", function (d) { return x(d.smokes); } )
             .attr("y", function (d) { return y(d.age); } )
-            
             .classed("stateText", true);          
 });
 
